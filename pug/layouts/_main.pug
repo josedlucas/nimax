@@ -1,0 +1,275 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        link(rel="apple-touch-icon" sizes="76x76" href="./img/apple-icon.png")
+        link(rel="icon" type="image/png" href="./img/favicon.png")
+        title Taxim
+        // Fonts and icons
+        link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet")
+        link(href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet")
+        // Nucleo Icons
+        link(href="./css/nucleo-icons.css" rel="stylesheet")
+        link(href="./css/nucleo-svg.css" rel="stylesheet")
+        // Font Awesome Icons
+        link(href="./css/font-awesome.css" rel="stylesheet")
+        link(href="./css/nucleo-svg.css" rel="stylesheet")
+        // CSS Files
+        link(href="./css/argon-design-system.css?v=1.2.2" rel="stylesheet")
+        link(href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css" rel="stylesheet")
+        script(type="module", src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs")
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js')
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css")
+        link(rel="stylesheet" href="./css/style.css")
+    body.index-page
+        // Navbar
+        include ../components/_header
+        .wrapper
+            // Block content
+            block content
+            // Footer
+            include ../components/_footer
+        // Core JS Files
+        script(src="./js/core/jquery.min.js" type="text/javascript")
+        script(src="./js/core/popper.min.js" type="text/javascript")
+        script(src="./js/core/bootstrap.min.js" type="text/javascript")
+        script(src="./js/plugins/perfect-scrollbar.jquery.min.js")
+        // Plugin for Switches
+        script(src="./js/plugins/bootstrap-switch.js")
+        // Plugin for the Sliders
+        script(src="./js/plugins/nouislider.min.js" type="text/javascript")
+        script(src="./js/plugins/moment.min.js")
+        script(src="./js/plugins/datetimepicker.js" type="text/javascript")
+        script(src="./js/plugins/bootstrap-datepicker.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js")
+        script(src="./js/slider.js" type="text/javascript")
+        script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js")
+        script.
+            // Configuración global de axios para Google Apps Script
+            axios.defaults.headers.post['Content-Type'] = 'text/plain;charset=utf-8';
+            axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+            axios.defaults.headers.post['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS';
+            
+            // Crear una instancia de axios con configuración específica
+            const apiAxios = axios.create({
+                baseURL: 'https://script.google.com/macros/s/',
+                timeout: 10000,
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                },
+                transformRequest: [(data) => JSON.stringify(data)],
+                transformResponse: [(data) => {
+                    try {
+                        return JSON.parse(data);
+                    } catch (error) {
+                        return {
+                            result: 'error',
+                            error: 'Error al procesar la respuesta'
+                        };
+                    }
+                }]
+            });
+        script.
+            var animation = {};
+
+            function loadAnimation() {
+                if (window.innerWidth < 768) {
+                    animation = lottie.loadAnimation({
+                        container: document.getElementById('lottie-container'), 
+                        renderer: 'svg',
+                        loop: false,
+                        autoplay: true,
+                        path: './img/taxim-m.json'
+                    });
+                } else {
+                    animation = lottie.loadAnimation({
+                        container: document.getElementById('lottie-container'), 
+                        renderer: 'svg',
+                        loop: false,
+                        autoplay: true,
+                        path: './img/taxim.json'
+                    });
+                }
+
+                animation.addEventListener('DOMLoaded', function() {
+                    if (window.innerWidth < 768) {
+                        animation.path = './img/taxim-m.json';
+                    }
+
+                    var totalFrames = animation.totalFrames;
+                    var fps = animation.frameRate;
+                    var duration = animation.getDuration();
+                    
+                    var startFrame = Math.floor(fps * 5);
+                    var endFrame = Math.floor(fps * 10);
+                    var isReversed = true;
+
+                    function playPingPong() {
+                        animation.setSpeed(0.5);
+                        if (!isReversed) {
+                            animation.setDirection(1);
+                            animation.playSegments([startFrame, endFrame], true);
+                        } else {
+                            animation.setDirection(-1);
+                            animation.playSegments([endFrame, startFrame], true);
+                        }
+                        isReversed = !isReversed;
+                    }
+                    
+                    animation.addEventListener('complete', function() {
+                        playPingPong();
+                    });
+                    
+                });
+            }
+
+            // Cargar la animación inicial
+            loadAnimation();
+
+            // Escuchar cambios en el tamaño de la pantalla
+            window.addEventListener('resize', function() {
+                animation.destroy(); // Destruir la animación actual
+                loadAnimation(); // Recargar la animación con el nuevo tamaño
+            });
+
+            // Inicializar Swiper para Instagram Móvil
+            const swiperInstagramMovile = new Swiper('#swiperInstagramMovile', {
+                slidesPerView: 1.6,
+                centeredSlides: true,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                breakpoints: {
+                    576: {
+                        slidesPerView: 1.8,
+                        speed: 600,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        centeredSlides: false,
+                        spaceBetween: 30,
+                        loop: false,
+                        spaceBetween: 5
+                    }
+                }
+            });
+
+            const swiperCards = new Swiper('#swiperCards', {
+                slidesPerView: 1,
+                centeredSlides: true,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                breakpoints: {
+                    576: {
+                        slidesPerView: 1.1,
+                        speed: 600,
+                        spaceBetween: 10,
+                        loop: true
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        centeredSlides: false,
+                        spaceBetween: 30,
+                        loop: false,
+                        spaceBetween: 5
+                    }
+                }
+            });
+
+            // Inicializar Swiper para Testimonios
+            const swiperTestimonios = new Swiper('#swiperTestimonios', {
+                loop: true,
+                slidesPerView: 1.1,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: true
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                }
+            });
+
+            // Inicializar todos los sliders de productos
+            const productSliders = [];
+            document.querySelectorAll('.slider-product').forEach((slider, index) => {
+                productSliders[index] = new Swiper(slider, {
+                    loop: true,
+                    slidesPerView: 1,
+                    centeredSlides: true,
+                    autoplay: {
+                        delay: 1000,
+                        disableOnInteraction: true,
+                        enabled: false
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    }
+                });
+
+                // Ocultar paginación inicialmente
+                const pagination = slider.querySelector('.swiper-pagination');
+                if (pagination) {
+                    pagination.style.opacity = '0';
+                    pagination.style.transition = 'opacity 0.3s';
+                }
+
+                // Eventos para mostrar/ocultar autoplay y paginación
+                slider.addEventListener('mouseenter', () => {
+                    if (productSliders[index].autoplay) {
+                        productSliders[index].autoplay.start();
+                    }
+                    const pagination = slider.querySelector('.swiper-pagination');
+                    if (pagination) {
+                        pagination.style.opacity = '9';
+                    }
+                });
+                
+                slider.addEventListener('mouseleave', () => {
+                    if (productSliders[index].autoplay) {
+                        productSliders[index].autoplay.stop();
+                    }
+                    const pagination = slider.querySelector('.swiper-pagination');
+                    if (pagination) {
+                        pagination.style.opacity = '0';
+                    }
+                });
+            });
+            
+        script.
+            function scrollToDownload() {
+                if ($(".section-download").length != 0) {
+                $("html, body").animate(
+                    {
+                    scrollTop: $(".section-download").offset().top,
+                    },
+                    1000
+                );
+                }
+            }
+        script.
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#navbar-main').addClass('bg-white');
+                } else {
+                    $('#navbar-main').removeClass('bg-white');
+                }
+            });

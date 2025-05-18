@@ -1,0 +1,131 @@
+extends ../layouts/_main
+block content 
+    // Agregar script de reCAPTCHA
+    script(src="https://www.google.com/recaptcha/api.js" async defer)
+    .container.pt-md-5.px-0.px-md-auto.pb-md-5.mb-md-5
+        // Agregar loader
+        .loader-container(style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;")
+            .d-flex.justify-content-center.align-items-center.h-100
+                .spinner-border.text-light(role="status")
+                    span.sr-only Cargando...
+        
+        .card.shadow.rounded-3.px-5.py-5.col-md-10.mx-auto.mt-md-5.cardMNone
+            h5.display-5.font-weight-bold.text-center.d-md-none.d-block #TodoParaTuRenault
+            h3.display-4.font-weight-bold.mb-5.text-center.text-md-left.mb-md-5
+                | ENVIANOS UN MENSAJE
+            form.row#contacto
+                .col-md-6
+                    div
+                        .form-group
+                            label.text-muted(for="name") Nombre *
+                            input#name.form-control(type="text" name="name" required)
+                        .form-group
+                            label.text-muted(for="nickname") Apellido *
+                            input#nickname.form-control(type="text" name="nickname" required)
+                        .form-group
+                            label.text-muted(for="phone") Telefono *
+                            input#phone.form-control(type="tel" name="phone" required)
+                        .form-group
+                            label.text-muted(for="email") Email *
+                            input#email.form-control(type="email" name="email" required)
+                .col-md-6
+                    .form-group
+                        label.text-muted(for="message") Mensaje *
+                        textarea#message.form-control(rows="5" name="message" required)
+                    // Agregar el captcha
+                    .form-group.mt-3
+                        .g-recaptcha(data-sitekey="6LeyjRUrAAAAAIVOms37BFTDdwSLnTiF06ILcUU1")
+                    .pt-3 
+                        button#submitBtn.btn.btn-primary.rounded-0.mt-3(type="submit") Enviar
+        script.
+            // Esperar a que el DOM esté completamente cargado
+            document.addEventListener("DOMContentLoaded", function() {
+                const form = document.getElementById("contacto");
+                form.addEventListener("submit", async function(e) {
+                    e.preventDefault(); // Prevenir el envío del formulario por defecto
+                    await validateForm(form); // Pasar el formulario como argumento
+                });
+            });
+
+            async function validateForm(form) { // Recibir el formulario como argumento
+                let name = document.getElementById("name").value;
+                let nickname = document.getElementById("nickname").value;
+                let phone = document.getElementById("phone").value;
+                let email = document.getElementById("email").value;
+                let message = document.getElementById("message").value;
+
+                // Validación de campos vacíos
+                if (name == "" || nickname == "" || phone == "" || email == "" || message == "") {
+                    Swal.fire({
+                        title: "Error",
+                        text: "Debe completar todos los campos",
+                        icon: "error"
+                    });
+                    return;
+                }
+
+                // Validación de email
+                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                    Swal.fire({
+                        title: "Error",
+                        text: "El email no es válido",
+                        icon: "error"
+                    });
+                    return;
+                }
+
+                const captcha = grecaptcha.getResponse();
+                if (!captcha) {
+                    Swal.fire({
+                        title: "Error",
+                        text: "Debe completar el CAPTCHA",
+                        icon: "error"
+                    });
+                    return;
+                }
+
+                try {
+                    $('.loader-container').css('display', 'block');
+
+                    const response = await axios.post('/api/contact.php', {
+                        name: name,
+                        nickname: nickname,
+                        phone: phone,
+                        email: email,
+                        message: message,
+                        captcha: captcha
+                    });
+
+                    $('.loader-container').css('display', 'none');
+                    if (response.status === 200) {
+                        Swal.fire({
+                            title: "Mensaje enviado",
+                            text: response.data.message,
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true
+                        });
+                        form.reset(); // Usar el formulario recibido como argumento
+                        grecaptcha.reset(); // Reiniciar el CAPTCHA
+                    } else {
+                        Swal.fire({
+                            title: "Error",
+                            text: response.data.message,
+                            icon: "error"
+                        });
+                    }
+                } catch (error) {
+                    $('.loader-container').css('display', 'none');
+                    console.error('Error:', error);
+                    Swal.fire({
+                        title: "Error",
+                        text: "Error al enviar el mensaje",
+                        icon: "error"
+                    });
+                }
+            }
+            
+    img(src="./img/theme/products/section1/bg.png", alt="Background").bg-home.container.pt-4.d-md-block.d-none
+    .d-md-none.d-block.pt-5
+        img(src="./img/theme/products/section1/bgM.png", alt="Background").bg-home.container.pt-4.mt-5

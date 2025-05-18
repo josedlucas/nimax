@@ -1,0 +1,39 @@
+extends ../layouts/_main
+block content 
+    section#about-section1.pt-5.px-0.px-md-auto.pb-5
+        .container.pt-md-2
+            .position-absolute.z-1
+                h2.display-3.mb-4.font-weight-normal.d-md-block.d-none
+                    | NOS #[br.d-md-block.d-none]
+                    | ESPECIALIZAMOS #[br.d-md-block.d-none]
+                    | EN #[b.bg-primary.px-2 REPUESTOS] #[br.d-md-block.d-none]
+                    | #[b.bg-primary.px-2 RENAULT]
+                h2.display-3.mb-4.font-weight-normal.d-md-none.d-block
+                    | LA LÍNEA MÁS #[br.d-md-block.d-none]
+                    | CONFIABLE DE  #[br.d-md-block.d-none]
+                    | REPUESTOS PARA
+                    | #[b.bg-primary.px-2 RENAULT]
+                a(href="#").btn.btn-outline-dark.rounded-0.mt-md-4.d-md-block.d-none NUESTROS PRODUCTOS
+            img(src="./img/theme/about/section1/image.png", alt="Taxim", data-screen="d").container.d-md-block.d-none.tscale1-5
+        img(src="./img/theme/about/section1/imageM.png", alt="Taxim", data-screen="m").d-md-none.d-block.w-100
+    section#about-section2.pt-md-5.px-0.px-md-auto.mt-md-5
+        .container
+            .row
+                .col-md-6.order-md-1.order-2
+                    img(src="./img/theme/about/section2/image.png", alt="Taxim", data-screen="d").col-md-12
+                .col-md-6.order-md-2.order-1.col-10.mx-auto.mb-md-0.mb-4
+                    p.display-7.font-weight-light  
+                        | En Taxim, somos una marca especializada en repuestos exclusivos 
+                        | para vehículos de la línea Renault, creada en 2016 para dar solución a una necesidad 
+                        | creciente en el mercado argentino y #[b.fw-bold.text-dark ofrecer productos de alta calidad a precios competitivos.] 
+                        | Desde nuestros inicios, hemos trabajado para combinar excelencia y accesibilidad, garantizando 
+                        | a nuestros clientes la confianza de adquirir piezas de calidad original y compatibles con sus vehículos.
+
+                    p
+                        | Hoy, contamos con una sólida presencia en más de 300 mostradores especializados de la marca.
+
+                    p
+                        | En Taxim, nos enfocamos en ser el aliado de quienes buscan repuestos confiables, asegurando 
+                        | la mejor experiencia de compra y el respaldo que solo un especialista puede brindar.
+
+    include ../components/_ig_slider.pug

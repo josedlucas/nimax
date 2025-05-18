@@ -1,0 +1,17 @@
+{
+  "name": "nimax",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "pug pug/views -o . -p",
+    "watch": "pug pug/views -o . -P -w",
+    "dev": "concurrently \"npm run watch\" \"browser-sync start --server --files '*.html, css/*.css, js/*.js'\""  
+  },
+  "dependencies": {
+    "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3"
+  }
+}
