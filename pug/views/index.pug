@@ -1,129 +1,81 @@
 extends ../layouts/_main
 block content 
-    .container.pt-5.px-0.px-md-auto   
+    .container.pt-5.px-0.px-md-auto.custom-container   
         #lottie-container
-    img(src="./img/bg.svg", alt="Background").bg-home.container.pt-4.d-md-block.d-none   
+    //img(src="./img/bg.svg", alt="Background").bg-home.container.pt-4.d-md-block.d-none   
     #section-components.section.section-components.pb-0
-        .container
+        .container.bg-white.mt-md-n7.mt-n7.border.border-none-m.bg-white-none-m
             #swiperCards.swiper
                 .swiper-wrapper
                     .swiper-slide
-                        .card
-                            img.card-img-top(src="./img/slider/image0.png", alt="Card image cap")
+                        .card.shadow-none.border.bg-border-none-md
+                            img.card-img-top(src="./img/slider/image0.png", alt="Card image cap").mx-auto
                             .card-body.text-center
-                                h6.card-title.fw-bold BUEN PRECIO
-                                p.card-text(style="font-size:14px !important") precios competitivos sin comprometer la calidad, asegurando la mejor relación costo-beneficio para todo vehículo Renault. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                h6.card-title.fw-bold EXCELENTES PRECIOS
+                                p.card-text(style="font-size:14px !important") 
+                                    | La mejor opción en repuestos Volkswagen, 
+                                    | al precio que necesitás. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     .swiper-slide
-                        .card
-                            img.card-img-top(src="./img/slider/image1.png", alt="Card image cap")
+                        .card.shadow-none.border.bg-border-none-md
+                            img.card-img-top(src="./img/slider/image1.png", alt="Card image cap").mx-auto
                             .card-body.text-center
-                                h6.card-title.fw-bold ALTÍSIMA CALIDAD
-                                p.card-text(style="font-size:14px !important") Nuestros repuestos cumplen con los más altos estándares de fabricación, garantizando durabilidad, seguridad y  desempeño.
+                                h6.card-title.fw-bold ÓPTIMA CALIDAD
+                                p.card-text(style="font-size:14px !important") 
+                                    | Las piezas que todo Volkswagen merece, 
+                                    | con calidad garantizada. &nbsp;&nbsp;
+                                    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     .swiper-slide
-                        .card
-                            img.card-img-top(src="./img/slider/image2.png", alt="Card image cap")
+                        .card.shadow-none.border.bg-border-none-md
+                            img.card-img-top(src="./img/slider/image2.png", alt="Card image cap").mx-auto
                             .card-body.text-center
-                                h6.card-title.fw-bold MARCA CON RESPALDO
-                                p.card-text(style="font-size:14px !important") Contamos con el respaldo de una empresa con trayectoria y reconocida en el mercado, brindando garantía y soporte para que compres con total confianza.
-                .swiper-pagination.mt-4
+                                h6.card-title.fw-bold SÓLIDO RESPALDO
+                                p.card-text(style="font-size:14px !important") 
+                                    | Contamos con el respaldo y experiencia 
+                                    | de una empresa referente en el mercado 
+                                    | de autopartes en el país para ofrecer 
+                                    | total confianza y garantía.
+                .swiper-pagination.mt-md-4
 
     section#repuestos.position-relative
-        .bg-section
-        .container.py-md-4
-            .text-center.mb-xxl-5.mb-lg-4
-                h2.display-4.mb-4 ¿QUÉ TIPO DE REPUESTO NECESITAS? ¡LO TENEMOS!
-            .row.align-items-center
-                .col-lg-6.mb-4.mb-lg-0
-                    img.img-fluid(src="./img/theme/home/section3/image.png", alt="Repuestos")
-                .col-lg-6
-                    .row
-                        .col-md-6.pl-5.pl-md-auto
-                            ul.list-unstyled
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | CARROCERÍA
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | CERRAJERÍA
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | CLIMATIZACIÓN
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | REFRIGERACIÓN
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | ENCENDIDO
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | ESPEJOS
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | FILTROS
-                        .col-md-6.pl-5.pl-md-auto
-                            ul.list-unstyled
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | MOTOR
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | FRENOS
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | ILUMINACIÓN
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | INYECCIÓN
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | SUSPENSION Y DIRECCION
-                                li.mb-2
-                                    img.arrow-icon.mr-2(src="./img/arrow.svg", alt="arrow")
-                                    | TRANSMISIÓN
+        .col-md-5.mx-auto.py-md-4
+            h3.text-center.text-gray-500 
+                | Nimax es #[span.text-secondary tu mejor aliado ] a la hora de buscar #[br] soluciones y repuestos para tu Volkswagen de óptima #[br] calidad y a buen precio
+            p.text-center.text-gray-500.mt-5
+                | Tenemos a disposición de tu negocio la más
+                | completa línea de #[br] repuestos para Volkswagen.
+                | ¿Qué necesitás? Te ayudamos.
 
-    section#testimonios.py-5.mt-md-5
-        .container.mt-md-5.pt-md-5
-            .text-center.mb-5.pt-md-5.pb-2
-                h5.display-5.font-weight-bold #ExperienciaTAXIM
-                h3.mb-4 NUESTROS CLIENTES OPINAN
-            #swiperTestimonios.swiper
-                .swiper-wrapper
-                    .swiper-slide
-                        .row.justify-content-center
-                            .col-md-10
-                                .card.border-0.shadow
-                                    .card-body.p-5
-                                        .row.align-items-center
-                                            .col-md-5
-                                                img.img-fluid(src="./img/theme/home/section4/image.webp", alt="Kit de distribución")
-                                            .col-md-7.text-center
-                                                h6.mb-3.font-weight-bold Juan Martín Orella
-                                                hr  
-                                                p.lead "Original por donde se lo mire. Tranquilidad por los próximos 60000 kms."
-                    .swiper-slide
-                        .row.justify-content-center
-                            .col-md-10
-                                .card.border-0.shadow
-                                    .card-body.p-5
-                                        .row.align-items-center
-                                            .col-md-5
-                                                img.img-fluid(src="./img/theme/home/section4/image1.webp", alt="Bomba de agua")
-                                            .col-md-7.text-center
-                                                h6.mb-3.font-weight-bold Mario Victor Rey
-                                                hr  
-                                                p.lead "Los filtros son de primera calidad. Quedó todo absolutamente como nuevo. Muy recomendable."
-                    .swiper-slide
-                        .row.justify-content-center
-                            .col-md-10
-                                .card.border-0.shadow
-                                    .card-body.p-5
-                                        .row.align-items-center
-                                            .col-md-5
-                                                img.img-fluid(src="./img/theme/home/section4/image2.webp", alt="Kit de filtros")
-                                            .col-md-7.text-center
-                                                h6.mb-3.font-weight-bold Carlos Rodríguez Bravo
-                                                hr  
-                                                p.lead "Excelente calidad y servicio. El kit de distribución funcionó perfectamente en los modelos que necesité."
-                .swiper-pagination.mt-5
+    section#testimonios.py-5
+        .container
+            .row
+                a(href="http://").col-md-6
+                    img.img-fluid(src="./img/theme/home/section4/image0.png", alt="1")
+                    h3.position-absolute.text-white(style="top: 50%; left: 50%; transform: translate(-50%, -50%);").text-center
+                        | KITS DE DISTRIBUCIÓN
+                .col-md-6(style="display: grid")
+                    a(href="http://").col-md-12.px-0
+                        img(src="./img/theme/home/section4/image1.png", alt="2").img-fluid
+                        h3.position-absolute.text-white(style="top: 50%; left: 50%; transform: translate(-50%, -50%);").text-center
+                            | FILTROS
+                    a(href="http://").col-md-12.align-items-end.d-flex.px-0
+                        img(src="./img/theme/home/section4/image2.png", alt="3").img-fluid
+                        h3.position-absolute.text-white(style="top: 50%; left: 50%; transform: translate(-50%, -50%);").text-center
+                            | MOTOR
+                .col-md-12.mt-4            
+                    a(href="http://").btn.btn-primary.rounded-0.w-100
+                        .align-items-center.d-inline-flex
+                            <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_770_1537)">
+                                <path d="M0.1 -0.000976562L0.089 0.0100234L5.161 6.08902L0 12.258H3.826L8.986 6.09102L3.9 -0.000976562H0.1Z" fill="white"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_770_1537">
+                                <rect width="8.986" height="12.259" fill="white"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                            span.ms-3 CONOCÉ TODOS LOS PRODUCTOS
+        
 
     include ../components/_ig_slider.pug

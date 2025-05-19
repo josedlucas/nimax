@@ -81,7 +81,7 @@ html(lang="en")
                         renderer: 'svg',
                         loop: false,
                         autoplay: true,
-                        path: './img/taxim-m.json'
+                        path: './img/nimax-m.json'
                     });
                 } else {
                     animation = lottie.loadAnimation({
@@ -89,13 +89,13 @@ html(lang="en")
                         renderer: 'svg',
                         loop: false,
                         autoplay: true,
-                        path: './img/taxim.json'
+                        path: './img/nimax.json'
                     });
                 }
 
                 animation.addEventListener('DOMLoaded', function() {
                     if (window.innerWidth < 768) {
-                        animation.path = './img/taxim-m.json';
+                        animation.path = './img/nimax-m.json';
                     }
 
                     var totalFrames = animation.totalFrames;
@@ -171,15 +171,14 @@ html(lang="en")
                     el: '.swiper-pagination',
                     clickable: true
                 },
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false
-                },
+                //autoplay: {
+                //    delay: 3000,
+                //    disableOnInteraction: false
+                //},
                 breakpoints: {
                     576: {
-                        slidesPerView: 1.1,
                         speed: 600,
-                        spaceBetween: 10,
+                        spaceBetween: 1,
                         loop: true
                     },
                     768: {
@@ -192,20 +191,7 @@ html(lang="en")
                 }
             });
 
-            // Inicializar Swiper para Testimonios
-            const swiperTestimonios = new Swiper('#swiperTestimonios', {
-                loop: true,
-                slidesPerView: 1.1,
-                centeredSlides: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: true
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true
-                }
-            });
+        
 
             // Inicializar todos los sliders de productos
             const productSliders = [];
@@ -265,11 +251,12 @@ html(lang="en")
                 );
                 }
             }
-        script.
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) {
-                    $('#navbar-main').addClass('bg-white');
-                } else {
-                    $('#navbar-main').removeClass('bg-white');
-                }
-            });
+        //
+            script.
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 100) {
+                        $('#navbar-main').addClass('bg-white');
+                    } else {
+                        $('#navbar-main').removeClass('bg-white');
+                    }
+                });

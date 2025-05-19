@@ -14,7 +14,7 @@
 }
 
 .footer{
-    background: #FAB60F;
+    background: #464646;
 }
 
 .bg-home {
@@ -46,8 +46,9 @@
 }
 
 #section-components .card-img-top {
-    height: 200px;
-    object-fit: cover;
+    height: 100px;
+    width: 60px;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -95,7 +96,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #ffc107;
+    background: #012D73;
     /*clip-path: polygon(0 0, 100% 30px, 100% calc(100% - 30px), 0% 100%);*/
     z-index: -1;
 }
@@ -135,7 +136,7 @@
     outline: none !important;
 }
 #carouselTestimonios .carousel-indicators button.active {
-    background-color: #FFC107;
+    background-color: #012D73;
 }
 
 /* Estilos para la sección de Instagram */
@@ -176,7 +177,7 @@
 }
 
 #carouselInstagram .carousel-indicators button.active {
-    background-color: #FFC107;
+    background-color: #012D73;
 }
 
 /* Estilos comunes para todos los Swipers */
@@ -202,7 +203,7 @@
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #FFC107;
+    background-color: #FF4D00;
 }
 
 /* Swiper Instagram Móvil */
@@ -430,6 +431,12 @@
     }
 }
 @media (max-width: 768px) {
+    .border-none-m{
+        border: none !important;
+    }
+    .bg-white-none-m{
+        background: transparent !important;
+    }
     #contact {
         height: 38vh;
         align-items: center;
@@ -452,7 +459,9 @@
         right: 8rem;
     }
     #section-components .card {
-        margin: 0 auto 2rem;
+        margin: 0 auto 0rem;
+        max-width: fit-content;
+        border-radius: 0px;
     }
 
     #section-components .card-title {
@@ -470,6 +479,7 @@
 }
 
 @media (max-width: 576px) {
+
     .section-components {
         padding: 0;
     }
@@ -490,5 +500,34 @@
         .container > .row > div:nth-child(2) {
             margin-top: 16rem;
         }
+    }
+}
+
+@media (min-width: 576px) {
+    .custom-container {
+        max-width: 100%;
+    }
+  }
+  
+@media (min-width: 768px) {
+    .bg-white-none-md {
+        background: transparent !important;
+    }
+    .bg-border-none-md {
+        border: none !important;
+    }
+    .custom-container {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .custom-container {
+        max-width: 100%;
+    }
+}
+@media (min-width: 1200px) {
+    .custom-container {
+        max-width: 1350px;
     }
 }
