@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Validar el CAPTCHA
-    $captchaSecret = '6LeyjRUrAAAAAFuL6tBa6F_oCuzxEGeexaUDW55l'; // Cambiar por tu clave secreta de reCAPTCHA
+    $captchaSecret = '6LdpV0IrAAAAADUm2uH1NS0U5L7eCpe4rH9s-PiL'; // Cambiar por tu clave secreta de reCAPTCHA
     $captchaResponse = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$captchaSecret&response=$captchaToken");
     $captchaResult = json_decode($captchaResponse, true);
 
