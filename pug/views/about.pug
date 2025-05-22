@@ -1,6 +1,10 @@
 extends ../layouts/_main
+
+block variables
+    - var activeMenu = 'about'
+
 block content 
-    section#about-section1.pt-5.px-0.px-md-auto.pb-5
+    section#about-section1.pt-md-5.px-0.px-md-auto.pb-5
         .container.pt-md-5
             //.position-absolute.z-1
                 h2.display-3.mb-4.font-weight-normal.d-md-block.d-none

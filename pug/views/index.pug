@@ -1,4 +1,8 @@
 extends ../layouts/_main
+
+block variables
+    - var activeMenu = 'home'
+
 block content 
     .container.pt-5.px-0.px-md-auto.custom-container   
         #lottie-container
@@ -14,7 +18,7 @@ block content
                                 h6.card-title.fw-bold EXCELENTES PRECIOS
                                 p.card-text(style="font-size:14px !important") 
                                     | La mejor opción en repuestos Volkswagen, 
-                                    | al precio que necesitás. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    | al precio que necesitás.
                     .swiper-slide
                         .card.shadow-none.border.bg-border-none-md
                             img.card-img-top(src="./img/slider/image1.png", alt="Card image cap").mx-auto
@@ -22,9 +26,7 @@ block content
                                 h6.card-title.fw-bold ÓPTIMA CALIDAD
                                 p.card-text(style="font-size:14px !important") 
                                     | Las piezas que todo Volkswagen merece, 
-                                    | con calidad garantizada. &nbsp;&nbsp;
-                                    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    | con calidad garantizada.
                     .swiper-slide
                         .card.shadow-none.border.bg-border-none-md
                             img.card-img-top(src="./img/slider/image2.png", alt="Card image cap").mx-auto
@@ -38,27 +40,27 @@ block content
                 .swiper-pagination.mt-md-4
 
     section#repuestos.position-relative.d-md-block.d-none
-        .col-md-5.mx-auto.py-md-4
+        .col-md-4.mx-auto.py-md-4
             h3.text-center.text-gray-500 
-                | Nimax es #[span.text-secondary tu mejor aliado ] a la hora de buscar #[br] soluciones y repuestos para tu Volkswagen de óptima #[br] calidad y a buen precio
+                | Nimax es #[span.text-secondary tu mejor aliado ] a la hora de buscar soluciones y repuestos para tu Volkswagen de óptima calidad y a buen precio
             p.text-center.text-gray-500.mt-5
                 | Tenemos a disposición de tu negocio la más
-                | completa línea de #[br] repuestos para Volkswagen.
+                | completa línea de repuestos para Volkswagen.
                 | ¿Qué necesitás? Te ayudamos.
 
     section#testimonios.py-5
         .container
             .row
-                a(href="http://").col-md-6
+                a(href="./products.html").col-md-6
                     img.img-fluid(src="./img/theme/home/section4/image0.png", alt="1")
                     h3.position-absolute.text-white(style="top: 50%; left: 50%; transform: translate(-50%, -50%);").text-center
                         | KITS DE DISTRIBUCIÓN
                 .col-md-6(style="display: grid")
-                    a(href="http://").col-md-12.px-0.mt-md-0.mt-3
+                    a(href="./products.html").col-md-12.px-0.mt-md-0.mt-3
                         img(src="./img/theme/home/section4/image1.png", alt="2").img-fluid
                         h3.position-absolute.text-white(style="top: 50%; left: 50%; transform: translate(-50%, -50%);").text-center
                             | FILTROS
-                    a(href="http://").col-md-12.align-items-end.d-flex.px-0.mt-md-0.mt-3
+                    a(href="./products.html").col-md-12.align-items-end.d-flex.px-0.mt-md-0.mt-3
                         img(src="./img/theme/home/section4/image2.png", alt="3").img-fluid
                         h3.position-absolute.text-white(style="top: 50%; left: 50%; transform: translate(-50%, -50%);").text-center
                             | MOTOR

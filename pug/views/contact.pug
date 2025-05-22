@@ -1,4 +1,8 @@
 extends ../layouts/_main
+
+block variables
+    - var activeMenu = 'contact'
+
 block content 
     // Agregar script de reCAPTCHA
     script(src="https://www.google.com/recaptcha/api.js" async defer)
