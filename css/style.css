@@ -423,6 +423,15 @@
         margin: 0 auto 2rem;
         display: block;
     }
+    .navbar-collapse.collapsing, .navbar-collapse.show {
+        background: #012D74;
+    }
+    .navbar-nav .nav-link {
+        color: #ffffff !important;
+    }
+    .navbar-collapse .navbar-toggler span {
+        background: #fafafa;
+    }
 }
 
 @media (min-width: 768px) {
