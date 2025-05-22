@@ -25,7 +25,7 @@ html(lang="en")
         script(src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js')
         link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css")
         link(rel="stylesheet" href="./css/style.css")
-    body.index-page
+    body(class=activeMenu !== 'contact' ? 'index-page' : '')
         // Navbar
         include ../components/_header
         .wrapper

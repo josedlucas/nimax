@@ -37,7 +37,7 @@ block content
                         label.text-muted(for="message") Mensaje *
                         textarea#message.form-control(rows="5" name="message" required)
                     // Agregar el captcha
-                    .form-group.mt-3
+                    .mt-3(style="contain: layout;")
                         .g-recaptcha.captcha-container(data-sitekey="6LdpV0IrAAAAAMjAwbsoXXusgvfzSJk-8jXLKFKv")
                     .pt-3 
                         button#submitBtn.btn.btn-primary.rounded-0.mt-3(type="submit") Enviar
@@ -130,6 +130,6 @@ block content
                 }
             }
             
-    img(src="./img/theme/products/section1/bg.png", alt="Background").bg-home.container.pt-4.d-md-block.d-none
+    img(src="./img/theme/products/section1/bg.png", alt="Background").bg-home-contact.bg-home.container.pt-4.d-md-block.d-none
     .d-md-none.d-block.pt-5
-        img(src="./img/theme/products/section1/bgM.png", alt="Background").bg-home.container.pt-4.mt-5
+        img(src="./img/theme/products/section1/bgM.png", alt="Background").bg-home-contact.bg-home.container.pt-4.mt-5

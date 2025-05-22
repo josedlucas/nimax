@@ -27,6 +27,7 @@
     transform: scale(1.4);
 }
 
+
 #section-components .card {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     border-radius: 15px;
@@ -485,21 +486,13 @@
         transform: scale(1.5);
         margin-top: -6rem;
     }
-    .g-recaptcha {
-        position: relative;
-        z-index: 1;
-    }
 
-    .g-recaptcha iframe {
-        position: relative !important;
+    .bg-home-contact {
+        width: 100%;
+        padding: 0px !important;
+        transform: scale(1);
     }
-
-    .rc-anchor-modal {
-        position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-    }
+    
 }
 
 @media (max-width: 576px) {
