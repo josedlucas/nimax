@@ -476,6 +476,21 @@
         transform: scale(1.5);
         margin-top: -6rem;
     }
+    .g-recaptcha {
+        position: relative;
+        z-index: 1;
+    }
+
+    .g-recaptcha iframe {
+        position: relative !important;
+    }
+
+    .rc-anchor-modal {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
 }
 
 @media (max-width: 576px) {
